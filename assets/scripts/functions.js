@@ -73,55 +73,21 @@ const trueORfalse = (number, clicked) => {
     })();
   } else {
     clicked.setAttribute("data", false);
+    showFigure();
   }
 };
 
-// **THIS BE SHOULD DELETE**
-const playerModel = () => {
-  ++playerFalse;
-  switch (playerFalse) {
-    case 1:
-      document.querySelector("#g0").setAttribute("data", "true");
-      break;
-
-    case 2:
-      document.querySelector("#g1").setAttribute("data", "true");
-      break;
-
-    case 3:
-      document.querySelector("#g2").setAttribute("data", "true");
-      break;
-
-    case 4:
-      document.querySelector("#g3").setAttribute("data", "true");
-      hint();
-      break;
-
-    case 5:
-      document.querySelector("#g4").setAttribute("data", "true");
-      break;
-
-    case 6:
-      document.querySelector("#g5").setAttribute("data", "true");
-      break;
-
-    case 7:
-      document.querySelector("#g5").setAttribute("l", "true");
-      break;
-
-    case 8:
-      document.querySelector("#g5").setAttribute("r", "true");
-      break;
-
-    case 9:
-      document.querySelector("#g6").setAttribute("data", "true");
-      document.querySelector("#g6").setAttribute("l", "true");
-      break;
-
-    case 10:
-      document.querySelector("#g6").setAttribute("r", "true");
-      endGame(false);
-      break;
+// SHOW FIGURE PART
+const showFigure = () => {
+  //CHECK END USER CHANCE
+  if (playerFalse < 9) {
+    ++playerFalse;
+    const figurePart = document.querySelector(
+      `.figure-part[data-show="${playerFalse}"]`
+    );
+    figurePart.style.display = "block";
+  } else {
+    endGame(false);
   }
 };
 
