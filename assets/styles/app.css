@@ -323,7 +323,7 @@ body {
 
 .figure-container {
   fill: transparent;
-  stroke: #fff;
+  stroke: #333;
   stroke-width: 4px;
   stroke-linecap: round;
 }
