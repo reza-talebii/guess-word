@@ -12,4 +12,4 @@
 </ul>
   </div>
 
-  <img src="assets/images/farsi.png">
+  <img src="assets/images/farsi.PNG">
