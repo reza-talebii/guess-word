@@ -33,8 +33,6 @@ let [word, tips] = listWord[Math.trunc(Math.random() * (listWord.length - 1))];
 let playerFalse = 0;
 let playerTrue = 0;
 
-console.log(word);
-
 playBtn.addEventListener("click", startGame);
 
 //*****BUGS**** */

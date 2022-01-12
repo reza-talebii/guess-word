@@ -2,6 +2,7 @@ const startGame = () => {
   document.querySelector("#home").classList.add("h");
   creatKeyboard();
   creatWordItem();
+  console.log(word);
 };
 
 //CREAT KEYBOARD
@@ -135,14 +136,7 @@ const endGame = (status) => {
     //NEXT WORD
     tryAgainBtn.addEventListener("click", () => {
       resultContent.classList.add("h");
-      //RESET WORD & TIPS
-      [word, tips] =
-        listWord[Math.trunc(Math.random() * (listWord.length - 1))];
-      //RESET PLAYER POINT
-      playerFalse = 0;
-      playerTrue = 0;
-      resetFigure();
-      startGame();
+      nextWord();
     });
   } else {
     title.innerHTML = "You Lose!";
@@ -150,4 +144,14 @@ const endGame = (status) => {
     //RELOAD GAME
     tryAgainBtn.addEventListener("click", () => window.location.reload());
   }
+};
+
+const nextWord = () => {
+  //RESET WORD & TIPS
+  [word, tips] = listWord[Math.trunc(Math.random() * (listWord.length - 1))];
+  //RESET PLAYER POINT
+  playerFalse = 0;
+  playerTrue = 0;
+  resetFigure();
+  startGame();
 };
