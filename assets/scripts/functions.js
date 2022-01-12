@@ -109,7 +109,7 @@ const hint = () => {
   });
 };
 
-//END GAME
+//***********EDIT**************
 const endGame = (status) => {
   const resultContent = document.querySelector("#result");
   const title = resultContent.querySelector(".title");

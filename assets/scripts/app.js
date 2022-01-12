@@ -28,12 +28,14 @@ const listWord = [
   ["Smartphone", "Something you've always on you."],
 ];
 
-const [word, tips] =
-  listWord[Math.trunc(Math.random() * (listWord.length - 1))];
+let [word, tips] = listWord[Math.trunc(Math.random() * (listWord.length - 1))];
 
 let playerFalse = 0;
 let playerTrue = 0;
 
-// console.log(word);
+console.log(word);
 
 playBtn.addEventListener("click", startGame);
+
+//*****BUGS**** */
+//SPACE BETWEEN WORD
