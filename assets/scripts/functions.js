@@ -1,11 +1,13 @@
 const startGame = () => {
-  //CHECK = USER FINISH GAME
-  
-  document.querySelector("#home").classList.add("h");
-  creatKeyboard();
-  creatWordItem();
-
-  console.log(word);
+  //CHECK = USER COMPLETE GAME
+  if (listWord.length < 1) {
+    completeGame();
+  } else {
+    document.querySelector("#home").classList.add("h");
+    creatKeyboard();
+    creatWordItem();
+  }
+  // console.log(word);
 };
 
 //CREAT KEYBOARD
@@ -126,11 +128,6 @@ const hint = () => {
 
 //END GAME
 const endGame = (status) => {
-  const resultContent = document.querySelector("#result");
-  const title = resultContent.querySelector(".title");
-  const body = resultContent.querySelector(".body");
-  const tryAgainBtn = resultContent.querySelector(".button");
-
   resultContent.classList.remove("h");
   resultContent.setAttribute("data", status);
 
@@ -154,7 +151,11 @@ const endGame = (status) => {
 const resetGame = () => {
   deletePrevWord();
   //RESET WORD & TIPS
-  [word, tips] = listWord[Math.trunc(Math.random() * (listWord.length - 1))];
+  try {
+    [word, tips] = listWord[Math.trunc(Math.random() * (listWord.length - 1))];
+  } catch (error) {
+    console.log(error);
+  }
   //RESET PLAYER POINT
   playerFalse = 0;
   playerTrue = 0;
@@ -169,4 +170,13 @@ const deletePrevWord = () => {
       if (w == word) listWord.splice(index, 1);
     });
   });
+};
+
+//COMPLETE GAME
+const completeGame = () => {
+  resultContent.classList.remove("h");
+  resultContent.setAttribute("data", "true");
+  title.innerHTML = "You Are Complete game!";
+  body.innerHTML = `Congratulations, you found the word! <br/> Good Job!`;
+  tryAgainBtn.addEventListener("click", () => window.location.reload());
 };

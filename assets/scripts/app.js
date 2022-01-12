@@ -33,8 +33,14 @@ let [word, tips] = listWord[Math.trunc(Math.random() * (listWord.length - 1))];
 let playerFalse = 0;
 let playerTrue = 0;
 
+//RESULT CONTENT
+const resultContent = document.querySelector("#result");
+const title = resultContent.querySelector(".title");
+const body = resultContent.querySelector(".body");
+const tryAgainBtn = resultContent.querySelector(".button");
+
 playBtn.addEventListener("click", startGame);
 
 //*****BUGS**** */
 //SPACE BETWEEN WORD
-//IF PLAYER WIN Do not repeat words
+//COMPLETE GAME
