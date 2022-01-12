@@ -12,19 +12,19 @@ const startGame = () => {
 };
 
 //CREAT KEYBOARD
-const creatKeyboard = () => {
-  const keyboard = document.querySelector("#keybord");
-  //RESET CONTENT
-  keyboard.innerHTML = "";
+// const creatKeyboard = () => {
+//   const keyboard = document.querySelector("#keybord");
+//   //RESET CONTENT
+//   keyboard.innerHTML = "";
 
-  for (let index = 97; index < 123; index++) {
-    const key = document.createElement("span");
-    key.className = "b";
-    key.setAttribute("data", "");
-    key.innerHTML = String.fromCharCode(index);
-    keyboard.append(key);
-  }
-};
+//   for (let index = 97; index < 123; index++) {
+//     const key = document.createElement("span");
+//     key.className = "b";
+//     key.setAttribute("data", "");
+//     key.innerHTML = String.fromCharCode(index);
+//     keyboard.append(key);
+//   }
+// };
 
 //CREAT WORD ITEM
 const creatWordItem = () => {
@@ -130,8 +130,9 @@ const endGame = (status) => {
     title.innerHTML = "شما بردید!";
     body.innerHTML = `تبریک میگم, شما کلمه رو پیدا کردید! <br/> کارت عالی بود!`;
   } else {
-    title.innerHTML = "شما باختید!";
-    body.innerHTML = `اون کلمه بود <br/> "${word}" <br/>تلاش بهتری کنید .`;
+    title.innerHTML = "شما باختید";
+    body.innerHTML = `کلمه بود = <br/> "${word}" <br/>بعدا بهتر تلاش کنید.`;
+  }
   //NEXT WORD
   tryAgainBtn.addEventListener("click", () => {
     resultContent.classList.add("h");
