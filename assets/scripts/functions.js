@@ -6,7 +6,6 @@ const startGame = () => {
     document.querySelector("#home").classList.add("h");
     //DELETE SPACE
     word = word.split(" ").join("");
-    creatKeyboard();
     creatWordItem();
   }
 };
@@ -32,7 +31,7 @@ const creatWordItem = () => {
   const letter = document.querySelector("#letter");
   //RESET LETTER
   letter.innerHTML = "";
-  console.log(word);
+
   word.split("").map(() => {
     const item = document.createElement("span");
     item.id = itemID++;
@@ -167,9 +166,17 @@ const resetGame = () => {
     const figures = document.querySelectorAll(".figure-part");
     figures.forEach((figure) => (figure.style.display = "none"));
   };
+  //RESET KEYBOARD
+  const resetKeyboard = () => {
+    const keyboard = document.querySelectorAll(".b");
+    keyboard.forEach((key) => {
+      key.setAttribute("data", "");
+    });
+  };
   deletePrevWord();
   nextWord();
   resetHint();
+  resetKeyboard();
   resetPoint();
   resetFigure();
   startGame();
