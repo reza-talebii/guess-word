@@ -137,7 +137,7 @@ const endGame = (status) => {
     //NEXT WORD
     tryAgainBtn.addEventListener("click", () => {
       resultContent.classList.add("h");
-      nextWord();
+      resetGame();
     });
   } else {
     title.innerHTML = "You Lose!";
@@ -149,6 +149,8 @@ const endGame = (status) => {
 
 //IF USER WIN SHOW THAT NEXT WORD
 const resetGame = () => {
+  //DELETE PREV WORD
+  deletePrevWord();
   //RESET WORD & TIPS
   [word, tips] = listWord[Math.trunc(Math.random() * (listWord.length - 1))];
   //RESET PLAYER POINT
@@ -156,4 +158,16 @@ const resetGame = () => {
   playerTrue = 0;
   resetFigure();
   startGame();
+};
+
+//DELETE PREV WORD
+const deletePrevWord = () => {
+  listWord.map((Iterable, index) => {
+    Iterable.map((w) => {
+      if (w == word) {
+        listWord.splice(index, 1);
+        console.log(listWord);
+      }
+    });
+  });
 };
