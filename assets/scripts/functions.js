@@ -103,12 +103,6 @@ const showFigure = () => {
   }
 };
 
-//RESET FIGURE
-const resetFigure = () => {
-  const figures = document.querySelectorAll(".figure-part");
-  figures.forEach((figure) => (figure.style.display = "none"));
-};
-
 //HINT
 const hint = () => {
   const hintBtn = document.querySelector("#hintButton");
@@ -121,7 +115,7 @@ const hint = () => {
   });
   //CLOSE HINT
   const exit = document.querySelector(".exit");
-  exit.addEventListener("click", (e) => {
+  exit.addEventListener("click", () => {
     hintBtn.setAttribute("data", true);
     hintContainer.style.display = "none";
   });
@@ -135,32 +129,48 @@ const endGame = (status) => {
   if (status) {
     title.innerHTML = "You Win!";
     body.innerHTML = `Congratulations, you found the word! <br/> Good Job!`;
-    //NEXT WORD
-    tryAgainBtn.addEventListener("click", () => {
-      resultContent.classList.add("h");
-      resetGame();
-    });
   } else {
     title.innerHTML = "You Lose!";
     body.innerHTML = `CThe word was <br/> "${word}" <br/> Better luck next time.`;
-    //RELOAD GAME
-    tryAgainBtn.addEventListener("click", () => window.location.reload());
   }
+  //NEXT WORD
+  tryAgainBtn.addEventListener("click", () => {
+    resultContent.classList.add("h");
+    resetGame();
+  });
 };
 
 //IF USER WIN SHOW THAT NEXT WORD
 const resetGame = () => {
-  deletePrevWord();
   //RESET WORD & TIPS
-  try {
-    //********bug******* */
-    [word, tips] = listWord[Math.trunc(Math.random() * (listWord.length - 1))];
-  } catch (error) {
-    console.log(error);
-  }
+  const nextWord = () => {
+    try {
+      //********bug******* */
+      [word, tips] =
+        listWord[Math.trunc(Math.random() * (listWord.length - 1))];
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  //RESET HINT
+  const resetHint = () => {
+    const hintBtn = document.querySelector("#hintButton");
+    hintBtn.setAttribute("data", false);
+  };
   //RESET PLAYER POINT
-  playerFalse = 0;
-  playerTrue = 0;
+  const resetPoint = () => {
+    playerFalse = 0;
+    playerTrue = 0;
+  };
+  //RESET FIGURE
+  const resetFigure = () => {
+    const figures = document.querySelectorAll(".figure-part");
+    figures.forEach((figure) => (figure.style.display = "none"));
+  };
+  deletePrevWord();
+  nextWord();
+  resetHint();
+  resetPoint();
   resetFigure();
   startGame();
 };
