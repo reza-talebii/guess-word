@@ -148,7 +148,7 @@ const endGame = (status) => {
 };
 
 //IF USER WIN SHOW THAT NEXT WORD
-const nextWord = () => {
+const resetWord = () => {
   //RESET WORD & TIPS
   [word, tips] = listWord[Math.trunc(Math.random() * (listWord.length - 1))];
   //RESET PLAYER POINT

@@ -37,3 +37,4 @@ playBtn.addEventListener("click", startGame);
 
 //*****BUGS**** */
 //SPACE BETWEEN WORD
+//IF PLAYER WIN Do not repeat words
