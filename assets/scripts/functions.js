@@ -4,10 +4,11 @@ const startGame = () => {
     completeGame();
   } else {
     document.querySelector("#home").classList.add("h");
+    //DELETE SPACE
+    word = word.split(" ").join("");
     creatKeyboard();
     creatWordItem();
   }
-  // console.log(word);
 };
 
 //CREAT KEYBOARD
@@ -31,7 +32,7 @@ const creatWordItem = () => {
   const letter = document.querySelector("#letter");
   //RESET LETTER
   letter.innerHTML = "";
-
+  console.log(word);
   word.split("").map(() => {
     const item = document.createElement("span");
     item.id = itemID++;
@@ -152,6 +153,7 @@ const resetGame = () => {
   deletePrevWord();
   //RESET WORD & TIPS
   try {
+    //********bug******* */
     [word, tips] = listWord[Math.trunc(Math.random() * (listWord.length - 1))];
   } catch (error) {
     console.log(error);

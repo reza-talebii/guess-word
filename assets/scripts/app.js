@@ -42,5 +42,4 @@ const tryAgainBtn = resultContent.querySelector(".button");
 playBtn.addEventListener("click", startGame);
 
 //*****BUGS**** */
-//SPACE BETWEEN WORD
 //COMPLETE GAME
