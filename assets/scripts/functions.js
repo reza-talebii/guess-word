@@ -130,7 +130,7 @@ const endGame = (status) => {
     body.innerHTML = `تبریک میگم, شما کلمه رو پیدا کردید! <br/> کارت عالی بود!`;
   } else {
     title.innerHTML = "شما باختید";
-    body.innerHTML = `کلمه بود = <br/> "${word}" <br/>بعدا بهتر تلاش کنید.`;
+    body.innerHTML = `کلمه بود <br/> "${word}" <br/>بعدا بهتر تلاش کنید.`;
   }
   //NEXT WORD
   tryAgainBtn.addEventListener("click", () => {
