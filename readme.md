@@ -1,5 +1,6 @@
+<div style="direction: rtl;">
 <h1 style="text-align: center;"> ورژن فارسی بازی جلاد </h1>
-<h3>##شانس خود را پیدا کردن کلمه نامغلوم امتحان کنید </h3>
+<h3>##شانس خود را پیدا کردن کلمه نامعلوم امتحان کنید </h3>
 <hr/>
 
 <ul>
@@ -9,5 +10,6 @@
   <li>-داشتن کیبورد<li>
   <li>....<li>
 </ul>
+  </div>
 
   <img src="assets/images/sdvs.png">
