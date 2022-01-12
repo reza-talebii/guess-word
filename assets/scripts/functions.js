@@ -146,6 +146,7 @@ const endGame = (status) => {
   }
 };
 
+//IF USER WIN SHOW THAT NEXT WORD
 const nextWord = () => {
   //RESET WORD & TIPS
   [word, tips] = listWord[Math.trunc(Math.random() * (listWord.length - 1))];
