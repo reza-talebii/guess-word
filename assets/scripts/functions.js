@@ -7,6 +7,8 @@ const startGame = () => {
 //CREAT KEYBOARD
 const creatKeyboard = () => {
   const keyboard = document.querySelector("#keybord");
+  //RESET CONTENT
+  keyboard.innerHTML = "";
 
   for (let index = 97; index < 123; index++) {
     const key = document.createElement("span");
@@ -19,8 +21,10 @@ const creatKeyboard = () => {
 
 //CREAT WORD ITEM
 const creatWordItem = () => {
-  const letter = document.querySelector("#letter");
   let itemID = 0;
+  const letter = document.querySelector("#letter");
+  //RESET LETTER
+  letter.innerHTML = "";
 
   word.split("").map(() => {
     const item = document.createElement("span");
@@ -91,6 +95,12 @@ const showFigure = () => {
   }
 };
 
+//RESET FIGURE
+const resetFigure = () => {
+  const figures = document.querySelectorAll(".figure-part");
+  figures.forEach((figure) => (figure.style.display = "none"));
+};
+
 //HINT
 const hint = () => {
   const hintBtn = document.querySelector("#hintButton");
@@ -109,7 +119,7 @@ const hint = () => {
   });
 };
 
-//***********EDIT**************
+//END GAME
 const endGame = (status) => {
   const resultContent = document.querySelector("#result");
   const title = resultContent.querySelector(".title");
@@ -122,9 +132,22 @@ const endGame = (status) => {
   if (status) {
     title.innerHTML = "You Win!";
     body.innerHTML = `Congratulations, you found the word! <br/> Good Job!`;
+    //NEXT WORD
+    tryAgainBtn.addEventListener("click", () => {
+      resultContent.classList.add("h");
+      //RESET WORD & TIPS
+      [word, tips] =
+        listWord[Math.trunc(Math.random() * (listWord.length - 1))];
+      //RESET PLAYER POINT
+      playerFalse = 0;
+      playerTrue = 0;
+      resetFigure();
+      startGame();
+    });
   } else {
     title.innerHTML = "You Lose!";
     body.innerHTML = `CThe word was <br/> "${word}" <br/> Better luck next time.`;
+    //RELOAD GAME
+    tryAgainBtn.addEventListener("click", () => window.location.reload());
   }
-  //   tryAgainBtn.addEventListener("click", () => window.location.reload());
 };
