@@ -38,7 +38,7 @@ const creatWordItem = () => {
   userGuess();
 };
 
-//USER CHOSE
+//USER CHOSE WORD
 const userGuess = () => {
   const keyWordBtn = document.querySelectorAll(".b");
 
@@ -85,8 +85,9 @@ const trueORfalse = (number, clicked) => {
 // SHOW FIGURE PART
 const showFigure = () => {
   //CHECK END USER CHANCE
-  if (playerFalse < 9) {
-    ++playerFalse;
+  if (playerFalse++ < 9) {
+    //SHOW HINT
+    if (playerFalse == 4) hint();
     const figurePart = document.querySelector(
       `.figure-part[data-show="${playerFalse}"]`
     );
