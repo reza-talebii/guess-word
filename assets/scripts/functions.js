@@ -1,7 +1,10 @@
 const startGame = () => {
+  //CHECK = USER FINISH GAME
+  
   document.querySelector("#home").classList.add("h");
   creatKeyboard();
   creatWordItem();
+
   console.log(word);
 };
 
@@ -149,7 +152,6 @@ const endGame = (status) => {
 
 //IF USER WIN SHOW THAT NEXT WORD
 const resetGame = () => {
-  //DELETE PREV WORD
   deletePrevWord();
   //RESET WORD & TIPS
   [word, tips] = listWord[Math.trunc(Math.random() * (listWord.length - 1))];
@@ -164,10 +166,7 @@ const resetGame = () => {
 const deletePrevWord = () => {
   listWord.map((Iterable, index) => {
     Iterable.map((w) => {
-      if (w == word) {
-        listWord.splice(index, 1);
-        console.log(listWord);
-      }
+      if (w == word) listWord.splice(index, 1);
     });
   });
 };
