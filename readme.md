@@ -8,7 +8,7 @@ Select a letter to figure out a hidden word in a set amount of chances
 - Generate a random word
 - Display word in UI with correct letters
 - keyboard
-- Show notification when select a letter twice
+- have a hint for any word
 - Show popup on win or lose
 - Play again button to reset game
 
