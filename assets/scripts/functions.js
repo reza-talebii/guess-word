@@ -127,12 +127,11 @@ const endGame = (status) => {
   resultContent.setAttribute("data", status);
 
   if (status) {
-    title.innerHTML = "You Win!";
-    body.innerHTML = `Congratulations, you found the word! <br/> Good Job!`;
+    title.innerHTML = "شما بردید!";
+    body.innerHTML = `تبریک میگم, شما کلمه رو پیدا کردید! <br/> کارت عالی بود!`;
   } else {
-    title.innerHTML = "You Lose!";
-    body.innerHTML = `CThe word was <br/> "${word}" <br/> Better luck next time.`;
-  }
+    title.innerHTML = "شما باختید!";
+    body.innerHTML = `اون کلمه بود <br/> "${word}" <br/>تلاش بهتری کنید .`;
   //NEXT WORD
   tryAgainBtn.addEventListener("click", () => {
     resultContent.classList.add("h");
@@ -188,7 +187,7 @@ const deletePrevWord = () => {
 const completeGame = () => {
   resultContent.classList.remove("h");
   resultContent.setAttribute("data", "true");
-  title.innerHTML = "You Are Complete game!";
-  body.innerHTML = `Congratulations, you found the word! <br/> Good Job!`;
+  title.innerHTML = "شما بازی رو تمام کردید!";
+  body.innerHTML = `تبریک میگم, شما کلمه رو پیدا کردید! <br/> کارت عالی بود!`;
   tryAgainBtn.addEventListener("click", () => window.location.reload());
 };
